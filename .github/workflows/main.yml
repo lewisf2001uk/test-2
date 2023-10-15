@@ -3,17 +3,20 @@ name: Push Changes to Github Pages
 on: push
 
 jobs:
-  push-changes-to-github-pages-repo:
+  copy-file:
     runs-on: ubuntu-latest
     steps:
-    - name: Copy files to another repository
-      uses: nkoppel/push-files-to-another-repository@v1.1.1      
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Push Changes to Github Pages
+      uses: dmnemec/copy_file_to_another_repo_action@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source-files: '.'
-        destination-username: 'lewisf2001uk'
-        destination-repository: 'lewisf2001uk.github.io'
-        destination-branch: 'main'
-        destination-directory: '2024'
-        commit-email: 'lewisf2001uk@googlemail.com'
+        source_file: 'src'
+        destination_repo: 'lewisf2001uk.github.io'
+        destination_folder: '2024'
+        user_email: 'lewisf2001uk@googlemail.com'
+        user_name: 'lewisf2001uk'
+        commit_message: 'Updated 2024 files'
