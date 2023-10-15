@@ -14,9 +14,8 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source_file: 'src'
-        destination_repo: 'lewisf2001uk.github.io'
+        source_file: 'src/'
+        destination_repo: 'lewisf2001uk/lewisf2001uk.github.io'
         destination_folder: '2024'
         user_email: 'lewisf2001uk@googlemail.com'
         user_name: 'lewisf2001uk'
-        commit_message: 'Updated 2024 files'
